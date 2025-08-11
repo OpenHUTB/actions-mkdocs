@@ -21,7 +21,7 @@ fi
 if [ -n "${INPUT_MKDOCS_VERSION}" ]; then
     if [ ! "${INPUT_MKDOCS_VERSION}" == "latest" ]; then
         # poetry add mkdocs==${INPUT_MKDOCS_VERSION}
-        pip install git+https://github.com/OpenHUTB/mkdocs.git
+        poetry add git+https://github.com/OpenHUTB/mkdocs.git
     fi
 fi
 
