@@ -18,11 +18,9 @@ if [ -n "${INPUT_REQUIREMENTS}" ] && [ -f "${GITHUB_WORKSPACE}/${INPUT_REQUIREME
       pip install -r ${GITHUB_WORKSPACE}/${INPUT_REQUIREMENTS}
 fi
 
-if [ -n "${INPUT_MKDOCS_VERSION}" ]; then
-    if [ ! "${INPUT_MKDOCS_VERSION}" == "latest" ]; then
-        poetry add mkdocs==${INPUT_MKDOCS_VERSION}
-    fi
-fi
+pip3 install --upgrade pip
+pip uninstall -y mkdocs
+pip install hutb-doc -i https://pypi.org/simple
 
 if [ -n "${INPUT_CONFIGFILE}" ]; then
     print_info "Setting custom path for mkdocs config yml"

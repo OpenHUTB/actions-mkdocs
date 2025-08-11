@@ -1,5 +1,7 @@
 FROM tiryoh/mkdocs-builder:debian
 
+# RUN poetry remove mkdocs
+# RUN poetry add hutb-doc
 # Copy only requirements to cache them in docker layer
 COPY poetry.lock pyproject.toml /docs/
 
