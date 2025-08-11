@@ -19,7 +19,10 @@ if [ -n "${INPUT_REQUIREMENTS}" ] && [ -f "${GITHUB_WORKSPACE}/${INPUT_REQUIREME
 fi
 
 if [ -n "${INPUT_MKDOCS_VERSION}" ]; then
-    poetry add git+https://github.com/OpenHUTB/mkdocs.git
+    if [ ! "${INPUT_MKDOCS_VERSION}" == "latest" ]; then
+        # poetry add mkdocs==${INPUT_MKDOCS_VERSION}
+        poetry add git+https://github.com/OpenHUTB/mkdocs.git
+    fi
 fi
 
 if [ -n "${INPUT_CONFIGFILE}" ]; then
